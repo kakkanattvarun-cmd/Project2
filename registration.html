@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BrightPath Student Portal | Registration</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f3f7fb;color:#233044;line-height:1.5}
+    header{background:#17324d;color:white;padding:20px max(5%,calc((100% - 900px)/2));display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}header h1{font-size:1.35rem;margin:0}nav{display:flex;gap:14px}nav a{color:white;text-decoration:none;font-weight:bold}
+    main{max-width:900px;margin:28px auto;padding:0 18px}.panel{background:white;border-radius:16px;padding:28px;box-shadow:0 8px 28px #17324d12}h2{color:#17324d;margin-top:0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.field{display:flex;flex-direction:column;gap:6px}.full{grid-column:1/-1}label,legend{font-weight:bold}input,select,textarea{font:inherit;padding:10px;border:1px solid #bdc9d6;border-radius:7px;width:100%}fieldset{border:1px solid #bdc9d6;border-radius:8px;padding:12px}fieldset label{font-weight:normal;margin-right:18px}input[type=radio],input[type=checkbox]{width:auto;margin-right:5px}.actions{display:flex;gap:12px;margin-top:22px}.btn{border:0;border-radius:8px;padding:11px 18px;font-weight:bold;cursor:pointer}.submit{background:#1769aa;color:white}.reset{background:#e8eef5;color:#17324d}.note{color:#58687b;font-size:.9rem}
+    @media(max-width:650px){.grid{grid-template-columns:1fr}.full{grid-column:auto}header{align-items:flex-start}}
+  </style>
+</head>
+<body>
+<header><h1>BrightPath Student Portal</h1><nav aria-label="Main navigation"><a href="index.html">Home</a><a href="registration.html">Register</a><a href="students.html">Student List</a></nav></header>
+<main><section class="panel">
+  <h2>Student Registration</h2>
+  <p>Please complete the fields below. This demonstration form validates required fields in the browser but does not store or transmit submitted information.</p>
+  <form id="registrationForm">
+    <div class="grid">
+      <div class="field"><label for="name">Full name *</label><input id="name" name="name" type="text" autocomplete="name" required minlength="2" placeholder="Enter your full name"></div>
+      <div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" autocomplete="email" required placeholder="name@example.com"></div>
+      <div class="field"><label for="password">Password *</label><input id="password" name="password" type="password" required minlength="8" autocomplete="new-password" placeholder="At least 8 characters"></div>
+      <div class="field"><label for="phone">Phone number *</label><input id="phone" name="phone" type="tel" required pattern="[0-9+\-\s()]{8,18}" placeholder="Enter phone number"></div>
+      <div class="field"><label for="dob">Date of birth *</label><input id="dob" name="dob" type="date" required></div>
+      <fieldset class="field"><legend>Gender *</legend><div><label><input type="radio" name="gender" value="Male" required> Male</label><label><input type="radio" name="gender" value="Female"> Female</label><label><input type="radio" name="gender" value="Other"> Other</label></div></fieldset>
+      <div class="field"><label for="course">Course *</label><select id="course" name="course" required><option value="">Select a course</option><option>Manual Testing</option><option>SQL</option><option>Selenium</option><option>Java</option><option>Python</option><option>Playwright</option></select></div>
+      <fieldset class="field"><legend>Skills (select all that apply)</legend><div><label><input type="checkbox" name="skills" value="HTML"> HTML</label><label><input type="checkbox" name="skills" value="SQL"> SQL</label><label><input type="checkbox" name="skills" value="Java"> Java</label><label><input type="checkbox" name="skills" value="Python"> Python</label><label><input type="checkbox" name="skills" value="Testing"> Testing</label></div></fieldset>
+      <div class="field full"><label for="address">Address *</label><textarea id="address" name="address" rows="3" required placeholder="Enter your address"></textarea></div>
+      <div class="field full"><label for="document">Upload supporting file (optional)</label><input id="document" name="document" type="file" accept=".pdf,.jpg,.jpeg,.png"></div>
+    </div>
+    <p class="note">* Required field. Uploaded files remain on your device because this is a front-end-only demo.</p>
+    <div class="actions"><button class="btn submit" type="submit">Submit Registration</button><button class="btn reset" type="reset">Reset Form</button></div>
+  </form>
+</section></main>
+<script>
+  document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (this.reportValidity()) {
+      alert('Demo only: form validation successful. No information has been saved or sent.');
+    }
+  });
+</script>
+</body>
+</html>
